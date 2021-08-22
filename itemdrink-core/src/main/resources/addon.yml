@@ -1,0 +1,3 @@
+name: ItemDrink
+version: ${version}
+main: com.github.zamponimarco.itemdrink.ItemDrink
