@@ -2,6 +2,7 @@ package com.github.zamponimarco.itemdrink.skill;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
+import com.github.zamponimarco.cubescocktail.annotation.CasterOnlyPlayer;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.cooldown.CooldownOptions;
@@ -30,6 +31,7 @@ import java.util.stream.IntStream;
 
 @Getter
 @Enumerable.Child
+@CasterOnlyPlayer
 @PossibleTargets("getPossibleTargets")
 @PossibleSources("getPossibleSources")
 @Enumerable.Displayable(name = "&6&lTriggered Skill", description = "gui.item.skill.triggered.description", headTexture = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODY1Mjg2ZTNlNmZhMDBlNGE2MGJiODk2NzViOWFhNzVkNmM5Y2RkMWVjODQwZDFiY2MyOTZiNzFjOTJmOWU0MyJ9fX0")
