@@ -11,7 +11,7 @@ import com.github.zamponimarco.cubescocktail.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.slot.EquipmentSlot;
 import com.github.zamponimarco.cubescocktail.slot.Slot;
 import com.github.zamponimarco.cubescocktail.source.CasterSource;
-import com.github.zamponimarco.cubescocktail.target.ItemTarget;
+import com.github.zamponimarco.cubescocktail.trgt.ItemTarget;
 import com.github.zamponimarco.itemdrink.item.Item;
 import com.google.common.collect.Lists;
 import lombok.Getter;
