@@ -1,5 +1,7 @@
 package com.github.zamponimarco.itemdrink.skill;
 
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
@@ -26,7 +28,10 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
@@ -90,8 +95,8 @@ public class TimedSkill extends Skill implements Timerable {
         return new BukkitRunnable() {
             @Override
             public void run() {
-                Map<String, Object> args = new HashMap<>();
-                args.put("caster", livingEntity);
+                ActionArgument args = new ActionArgument();
+                args.setArgument(ActionArgumentKey.CASTER, livingEntity);
                 executeActions(args);
             }
         };

@@ -1,6 +1,7 @@
 package com.github.zamponimarco.itemdrink.skill;
 
 import com.github.zamponimarco.cubescocktail.action.Action;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.key.Key;
 import com.github.zamponimarco.cubescocktail.key.Keyed;
@@ -36,9 +37,9 @@ public abstract class Skill implements Model, Cloneable, Keyed {
     @Serializable(stringValue = true)
     protected UUID id;
 
-    @Serializable(headTexture = SLOTS_HEAD, description = "gui.skill.slots")
+    @Serializable(headTexture = SLOTS_HEAD, description = "gui.item.skill.slots")
     protected List<Slot> allowedSlots;
-    @Serializable(headTexture = GROUPS_HEAD, description = "gui.skill.groups")
+    @Serializable(headTexture = GROUPS_HEAD, description = "gui.item.skill.groups")
     protected List<ActionGroup> groups;
 
     public Skill(ModelPath<Item> path) {
@@ -68,8 +69,8 @@ public abstract class Skill implements Model, Cloneable, Keyed {
         }
     }
 
-    public void executeActions(Map<String, Object> map) {
-        groups.forEach(group -> group.executeGroup(map));
+    public void executeActions(ActionArgument args) {
+        groups.forEach(group -> group.executeGroup(args));
     }
 
     @Override

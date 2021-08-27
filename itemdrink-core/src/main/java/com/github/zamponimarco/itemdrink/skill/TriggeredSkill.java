@@ -1,6 +1,8 @@
 package com.github.zamponimarco.itemdrink.skill;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgument;
+import com.github.zamponimarco.cubescocktail.action.args.ActionArgumentKey;
 import com.github.zamponimarco.cubescocktail.action.group.ActionGroup;
 import com.github.zamponimarco.cubescocktail.annotation.CasterOnlyPlayer;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
@@ -93,14 +95,14 @@ public class TriggeredSkill extends Skill implements TriggerListener, Cooldownab
     }
 
     @Override
-    public void onTrigger(Map<String, Object> map) {
-        LivingEntity caster = (LivingEntity) map.get("caster");
-        ItemStack itemStack = (ItemStack) map.get("item");
+    public void onTrigger(ActionArgument args) {
+        LivingEntity caster = args.getArgument(ActionArgumentKey.CASTER);
+        ItemStack itemStack = args.getArgument(ActionArgumentKey.ITEM);
 
         if (itemStack != null) {
             Item item = ItemDrink.getInstance().getItemManager().getItemByItemStack(itemStack);
             if (item != null && item.getSkills().contains(this)) {
-                executeTriggers(map, itemStack, caster);
+                executeTriggers(args, itemStack, caster);
             }
         } else {
             List<ItemStack> items = Utils.getEntityItems(caster);
@@ -108,15 +110,15 @@ public class TriggeredSkill extends Skill implements TriggerListener, Cooldownab
                 ItemStack equipItem = items.get(i);
                 Item item = ItemDrink.getInstance().getItemManager().getItemByItemStack(equipItem);
                 if (item != null && item.getId().equals(itemId) && getAllowedSlots().contains(Slot.slots.get(i))) {
-                    map.put("item", equipItem);
-                    executeTriggers(map, equipItem, caster);
-                    map.remove("item");
+                    args.setArgument(ActionArgumentKey.ITEM, equipItem);
+                    executeTriggers(args, equipItem, caster);
+                    args.setArgument(ActionArgumentKey.ITEM, null);
                 }
             });
         }
     }
 
-    private void executeTriggers(Map<String, Object> map, ItemStack itemStack, LivingEntity caster) {
+    private void executeTriggers(ActionArgument args, ItemStack itemStack, LivingEntity caster) {
         if (cooldownOptions.getCooldown() > 0) {
             if (CubesCocktail.getInstance().getCooldownManager().getCooldown(caster, getKey()) > 0) {
                 if (caster instanceof Player) {
@@ -129,7 +131,7 @@ public class TriggeredSkill extends Skill implements TriggerListener, Cooldownab
                         getCooldownOptions().getBar());
             }
         }
-        executeActions(map);
+        executeActions(args);
         consumeIfConsumable(itemStack);
     }
 
