@@ -4,7 +4,7 @@ An addon for [CubesCocktail](https://github.com/CubesCocktail/CubesCocktail) tha
 
 ### Download
 
-You can download the latest build of ItemDrink from the [Jenkins page](http://188.34.166.204:8080/job/ItemDrink/).
+You can download the latest build of ItemDrink from the [Jenkins page](http://49.12.216.90:8080/job/ItemDrink/).
 
 You can also compile the plugin by yourself using Maven.
 
