@@ -85,7 +85,7 @@ public class TimedSkill extends Skill implements Timerable {
     @Override
     public ItemStack getGUIItem() {
         return ItemUtils.getNamedItem(
-                Libs.getWrapper().skullFromValue(TIMER_HEAD),
+                Libs.getVersionWrapper().skullFromValue(TIMER_HEAD),
                 MessageUtils.color("&6&lTimer skill: &c" + timer),
                 Lists.newArrayList());
     }

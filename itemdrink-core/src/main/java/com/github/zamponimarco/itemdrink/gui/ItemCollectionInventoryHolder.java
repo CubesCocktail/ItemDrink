@@ -38,7 +38,7 @@ public class ItemCollectionInventoryHolder extends SelectableCollectionInventory
     public ItemStack getGlintedItem(AbstractItem item) {
         List<Component> lore = Libs.getLocale().getList("gui.item.description");
         lore.set(0, MessageUtils.color("&6&lApply actions &eto all selected items:"));
-        return ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(SELECTED_HEAD),
+        return ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(SELECTED_HEAD),
                 MessageUtils.color("&6&lName: &c" + item.getName()), lore);
     }
 

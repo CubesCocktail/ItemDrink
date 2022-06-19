@@ -159,14 +159,14 @@ public class CloudCollectionInventoryHolder extends PluginInventoryHolder {
 
     protected void placeCollectionOnlyItems() {
         if (!items.isEmpty()) {
-            this.registerClickConsumer(52, ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(NEXT_PAGE_ITEM),
+            this.registerClickConsumer(52, ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(NEXT_PAGE_ITEM),
                     MessageUtils.color("&6&lNext page"), new ArrayList<>()), (e) -> {
                 ++this.page;
                 e.getWhoClicked().openInventory(this.getInventory());
             });
         }
         if (this.page != 1) {
-            this.registerClickConsumer(51, ItemUtils.getNamedItem(Libs.getWrapper().skullFromValue(PREVIOUS_PAGE_ITEM),
+            this.registerClickConsumer(51, ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(PREVIOUS_PAGE_ITEM),
                     MessageUtils.color("&6&lPrevious page"), new ArrayList<>()), (e) -> {
                 --this.page;
                 e.getWhoClicked().openInventory(this.getInventory());
