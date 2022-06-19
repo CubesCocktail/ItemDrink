@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.github.zamponimarco</groupId>
         <artifactId>itemdrink</artifactId>
-        <version>transition</version>
+        <version>0.1</version>
     </parent>
     <artifactId>itemdrink-core</artifactId>
     <properties>
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>com.github.zamponimarco</groupId>
             <artifactId>cubescocktail-dist</artifactId>
-            <version>transition</version>
+            <version>0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

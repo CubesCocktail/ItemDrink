@@ -5,7 +5,7 @@
 
     <groupId>com.github.zamponimarco</groupId>
     <artifactId>itemdrink</artifactId>
-    <version>transition</version>
+    <version>0.1</version>
     <modules>
         <module>itemdrink-core</module>
         <module>itemdrink-dist</module>
