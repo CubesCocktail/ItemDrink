@@ -9,13 +9,13 @@ import com.github.zamponimarco.cubescocktail.libs.gui.model.create.ModelCreateIn
 import com.github.zamponimarco.cubescocktail.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.MessageUtils;
+import com.github.zamponimarco.cubescocktail.libs.util.ReflectUtils;
 import com.github.zamponimarco.itemdrink.item.AbstractItem;
 import com.github.zamponimarco.itemdrink.item.Item;
 import com.github.zamponimarco.itemdrink.item.ItemFolder;
 import com.google.common.collect.Lists;
 import lombok.SneakyThrows;
 import net.kyori.adventure.text.Component;
-import org.apache.commons.lang.reflect.FieldUtils;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -51,8 +51,8 @@ public class ItemCollectionInventoryHolder extends SelectableCollectionInventory
     @SneakyThrows
     @Override
     protected void defaultClickConsumer(AbstractItem model, InventoryClickEvent e) {
-        Collection<AbstractItem> items = ((Collection<AbstractItem>) FieldUtils.readField(field,
-                path.getLast() != null ? path.getLast() : path.getModelManager(), true));
+        Collection<AbstractItem> items = ((Collection<AbstractItem>) ReflectUtils.readField(field,
+                path.getLast() != null ? path.getLast() : path.getModelManager()));
         if (e.getClick().equals(ClickType.LEFT)) {
             openItemGUI(model, e);
         } else if (e.getClick().equals(ClickType.RIGHT)) {
