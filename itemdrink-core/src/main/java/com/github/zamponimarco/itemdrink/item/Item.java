@@ -6,13 +6,9 @@ import com.github.zamponimarco.cubescocktail.libs.core.Libs;
 import com.github.zamponimarco.cubescocktail.libs.model.wrapper.ItemStackWrapper;
 import com.github.zamponimarco.cubescocktail.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.MessageUtils;
-import com.github.zamponimarco.cubescocktail.trigger.TimerTrigger;
-import com.github.zamponimarco.cubescocktail.trigger.Trigger;
 import com.github.zamponimarco.itemdrink.ItemDrink;
 import com.github.zamponimarco.itemdrink.manager.ItemManager;
 import com.github.zamponimarco.itemdrink.skill.Skill;
-import com.github.zamponimarco.itemdrink.skill.TimedSkill;
-import com.github.zamponimarco.itemdrink.skill.TriggeredSkill;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import lombok.Getter;
@@ -21,7 +17,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
@@ -57,7 +56,6 @@ public class Item extends AbstractItem implements Cloneable {
         this.id = UUID.fromString((String) map.get("id"));
         this.item = (ItemStackWrapper) map.getOrDefault("item", new ItemStackWrapper());
         this.skills = (List<Skill>) map.getOrDefault("skills", Lists.newArrayList());
-        legacyTransition(map);
         itemCounter++;
     }
 
@@ -142,25 +140,5 @@ public class Item extends AbstractItem implements Cloneable {
                 collect(Collectors.toList()));
         newItem.skills.forEach(skill -> skill.setItemId(newItemId));
         return newItem;
-    }
-
-    @Deprecated
-    private void legacyTransition(Map<String, Object> map) {
-        List<Trigger> oldSkillSet = (List<Trigger>) map.get("skillSet");
-        if (oldSkillSet != null && !oldSkillSet.isEmpty()) {
-            oldSkillSet.forEach(trigger -> {
-                Skill skill;
-                if (trigger instanceof TimerTrigger) {
-                    skill = new TimedSkill(id, UUID.randomUUID(), trigger.getAllowedSlots() == null ?
-                            new ArrayList<>(Skill.DEFAULT_SLOTS) : trigger.getAllowedSlots(), trigger.getGroups(),
-                            ((TimerTrigger) trigger).getTimer());
-                } else {
-                    skill = new TriggeredSkill(id, UUID.randomUUID(), trigger.isConsumable(), trigger.
-                            getAllowedSlots() == null ? new ArrayList<>(Skill.DEFAULT_SLOTS) : trigger.getAllowedSlots(),
-                            trigger.getGroups(), trigger.getCooldownOptions(), trigger);
-                }
-                this.skills.add(skill);
-            });
-        }
     }
 }
