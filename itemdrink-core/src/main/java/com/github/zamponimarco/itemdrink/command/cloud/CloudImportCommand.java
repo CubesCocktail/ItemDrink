@@ -1,10 +1,10 @@
 package com.github.zamponimarco.itemdrink.command.cloud;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
-import com.github.zamponimarco.cubescocktail.database.NamedModel;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
+import com.github.zamponimarco.cubescocktail.libs.model.NamedModel;
+import com.github.zamponimarco.cubescocktail.libs.util.CompressUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.MessageUtils;
-import com.github.zamponimarco.cubescocktail.util.CompressUtils;
 import com.github.zamponimarco.itemdrink.ItemDrink;
 import com.github.zamponimarco.itemdrink.item.AbstractItem;
 import com.google.gson.Gson;

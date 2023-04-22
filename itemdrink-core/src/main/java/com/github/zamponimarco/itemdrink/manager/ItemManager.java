@@ -14,21 +14,30 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.Supplier;
 
 @Getter
 public class ItemManager extends ModelManager<AbstractItem> {
 
     private final static NamespacedKey key = new NamespacedKey(CubesCocktail.getInstance(), "item-id");
 
-    private List<AbstractItem> items;
+    private final List<AbstractItem> items;
 
     public ItemManager(Class<AbstractItem> classObject, String databaseType, JavaPlugin plugin) {
         super(classObject, databaseType, plugin, ImmutableMap.of("name", "item",
-                "addon", ItemDrink.getInstance()));
-        items = database.loadObjects();
+                "fileSupplier", (Supplier<File>) () -> {
+                    String fileName = "item.yml";
+                    File dataFile = new File(ItemDrink.getInstance().getDataFolder(), fileName);
+                    if (!dataFile.exists()) {
+                        ItemDrink.getInstance().saveResource(fileName);
+                    }
+                    return dataFile;
+                }));
+        this.items = fetchModels();
     }
 
     public static NamespacedKey getKey() {

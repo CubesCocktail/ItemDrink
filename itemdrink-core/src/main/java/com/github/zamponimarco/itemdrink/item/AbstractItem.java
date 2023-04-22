@@ -1,7 +1,7 @@
 package com.github.zamponimarco.itemdrink.item;
 
-import com.github.zamponimarco.cubescocktail.database.NamedModel;
 import com.github.zamponimarco.cubescocktail.function.Function;
+import com.github.zamponimarco.cubescocktail.libs.model.NamedModel;
 import com.github.zamponimarco.cubescocktail.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.MessageUtils;
 import com.github.zamponimarco.itemdrink.ItemDrink;

@@ -75,7 +75,7 @@ public class ItemDrink extends Addon {
     }
 
     private void setUpData() {
-        itemManager = new ItemManager(AbstractItem.class, "comp", CubesCocktail.getInstance());
+        itemManager = new ItemManager(AbstractItem.class, "comp_yaml", CubesCocktail.getInstance());
     }
 
     private void setUpCommands() {

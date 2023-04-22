@@ -1,10 +1,10 @@
 package com.github.zamponimarco.itemdrink.gui;
 
-import com.github.zamponimarco.cubescocktail.gui.SelectableCollectionInventoryHolder;
 import com.github.zamponimarco.cubescocktail.libs.core.Libs;
 import com.github.zamponimarco.cubescocktail.libs.gui.PluginInventoryHolder;
 import com.github.zamponimarco.cubescocktail.libs.gui.model.ModelObjectInventoryHolder;
 import com.github.zamponimarco.cubescocktail.libs.gui.model.RemoveConfirmationInventoryHolder;
+import com.github.zamponimarco.cubescocktail.libs.gui.model.SelectableCollectionInventoryHolder;
 import com.github.zamponimarco.cubescocktail.libs.gui.model.create.ModelCreateInventoryHolder;
 import com.github.zamponimarco.cubescocktail.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.libs.util.ItemUtils;

@@ -1,13 +1,13 @@
 package com.github.zamponimarco.itemdrink.gui;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
-import com.github.zamponimarco.cubescocktail.database.NamedModel;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
 import com.github.zamponimarco.cubescocktail.libs.core.Libs;
 import com.github.zamponimarco.cubescocktail.libs.gui.PluginInventoryHolder;
+import com.github.zamponimarco.cubescocktail.libs.model.NamedModel;
+import com.github.zamponimarco.cubescocktail.libs.util.CompressUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.MessageUtils;
-import com.github.zamponimarco.cubescocktail.util.CompressUtils;
 import com.github.zamponimarco.itemdrink.ItemDrink;
 import com.github.zamponimarco.itemdrink.item.AbstractItem;
 import com.github.zamponimarco.itemdrink.item.Item;
