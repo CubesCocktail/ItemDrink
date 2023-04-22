@@ -1,6 +1,6 @@
 ## ItemDrink
 
-An addon for [CubesCocktail](https://github.com/CubesCocktail/CubesCocktail) that allows you to create custom items using a wide range of features.
+An addon for [CubesCocktail](https://hangar.papermc.io/CubesCocktail/CubesCocktail) that allows you to create custom items using a wide range of features.
 
 ### Download
 
