@@ -95,10 +95,9 @@ public class Item extends AbstractItem implements Cloneable {
     }
 
     public void changeSkillName(String oldName, String newName) {
-    /*
-        skillSet.forEach(skill -> skill.changeSkillName(oldName, newName));
+        skills.forEach(skill -> skill.getGroups().forEach(group -> group.getActions().
+                forEach(action -> action.changeSkillName(oldName, newName))));
         ItemDrink.getInstance().getItemManager().saveModel(this);
-     */
     }
 
     public Set<Function> getUsedExecutableSkills() {
