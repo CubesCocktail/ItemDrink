@@ -7,7 +7,6 @@ import com.github.zamponimarco.cubescocktail.annotation.PossibleSources;
 import com.github.zamponimarco.cubescocktail.annotation.PossibleTargets;
 import com.github.zamponimarco.cubescocktail.libs.annotation.Enumerable;
 import com.github.zamponimarco.cubescocktail.libs.annotation.Serializable;
-import com.github.zamponimarco.cubescocktail.libs.core.Libs;
 import com.github.zamponimarco.cubescocktail.libs.model.ModelPath;
 import com.github.zamponimarco.cubescocktail.libs.util.ItemUtils;
 import com.github.zamponimarco.cubescocktail.libs.util.MessageUtils;
@@ -85,7 +84,7 @@ public class TimedSkill extends Skill implements Timerable {
     @Override
     public ItemStack getGUIItem() {
         return ItemUtils.getNamedItem(
-                Libs.getVersionWrapper().skullFromValue(TIMER_HEAD),
+                ItemUtils.skullFromValue(TIMER_HEAD),
                 MessageUtils.color("&6&lTimer skill: &c" + timer),
                 Lists.newArrayList());
     }

@@ -2,7 +2,6 @@ package com.github.zamponimarco.itemdrink.gui;
 
 import com.github.zamponimarco.cubescocktail.CubesCocktail;
 import com.github.zamponimarco.cubescocktail.function.AbstractFunction;
-import com.github.zamponimarco.cubescocktail.libs.core.Libs;
 import com.github.zamponimarco.cubescocktail.libs.gui.PluginInventoryHolder;
 import com.github.zamponimarco.cubescocktail.libs.model.NamedModel;
 import com.github.zamponimarco.cubescocktail.libs.util.CompressUtils;
@@ -159,14 +158,14 @@ public class CloudCollectionInventoryHolder extends PluginInventoryHolder {
 
     protected void placeCollectionOnlyItems() {
         if (!items.isEmpty()) {
-            this.registerClickConsumer(52, ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(NEXT_PAGE_ITEM),
+            this.registerClickConsumer(52, ItemUtils.getNamedItem(ItemUtils.skullFromValue(NEXT_PAGE_ITEM),
                     MessageUtils.color("&6&lNext page"), new ArrayList<>()), (e) -> {
                 ++this.page;
                 e.getWhoClicked().openInventory(this.getInventory());
             });
         }
         if (this.page != 1) {
-            this.registerClickConsumer(51, ItemUtils.getNamedItem(Libs.getVersionWrapper().skullFromValue(PREVIOUS_PAGE_ITEM),
+            this.registerClickConsumer(51, ItemUtils.getNamedItem(ItemUtils.skullFromValue(PREVIOUS_PAGE_ITEM),
                     MessageUtils.color("&6&lPrevious page"), new ArrayList<>()), (e) -> {
                 --this.page;
                 e.getWhoClicked().openInventory(this.getInventory());
